@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import Context from '../context/Context'
 import axios from 'axios'
+import BoardCard from './BoardCard'
 import getData from '../api'
 
 function Board(){
@@ -10,20 +11,23 @@ useEffect(() =>{
     const endpoint = 'https://coronavirus-19-api.herokuapp.com/countries'
     const getData = async (country) =>{
     await axios.get(`${endpoint}/${country}`).then(function (response) {
-       // console.log(response);
         setData(response.data)
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       });
 }
     getData(country)
 }, [])
-// const data = getData(country)
+
+
 return(
 <div>
-    {console.log(data)}
+    <BoardCard name='Total de casos' info={data.cases}/>
+    <BoardCard name='Obitos Hoje' info={data.todayDeaths}/>
+    <BoardCard name='Casos Hoje' info={data.todayCases}/>
+    <BoardCard name='Total de Mortos' info={data.deaths}/>
+    <BoardCard name='Total de Recuperados' info={data.recovered}/>
 </div>
 )
 }
