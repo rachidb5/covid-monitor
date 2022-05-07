@@ -8,11 +8,9 @@ function Header(){
     return(
     <div className="container bg-light">
         <h3>Painel de Monitoramento da Covid-19</h3>
-        <select ononChange={({ target: { value } }) => setCountry(value)}>
+        <select onChange={({ target: { value } }) => setCountry(value)}>
             {countries.map((c) => <option key={c.value} value={c.value}>
-                <div>
-                    {c.name}
-                </div>
+                {c.name}
              </option>)}
         </select>
     </div>)
