@@ -20,9 +20,9 @@ useEffect(() =>{
     getData(country)
 }, [])
 
-
+console.log(data)
 return(
-<div>
+<div className='d-flex flex-row container'>
     <BoardCard name='Total de casos' info={data.cases}/>
     <BoardCard name='Obitos Hoje' info={data.todayDeaths}/>
     <BoardCard name='Casos Hoje' info={data.todayCases}/>
